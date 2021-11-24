@@ -112,11 +112,10 @@ def trocarNome():
 def converterPlanilha():
 
     dicionario = {"Nomes": nomeCompleto, "Email": eMail }
-      
-    
+    nome = input("Digite o nome que o arquivo ira receber: ")
     planilha = pd.DataFrame.from_dict(dicionario)
     print(planilha)
-    planilha.to_excel("Cadastros.xlsx")
+    planilha.to_excel("{}.xlsx".format(nome))
 
 
 
