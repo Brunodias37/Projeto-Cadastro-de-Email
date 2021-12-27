@@ -113,6 +113,7 @@ def converterPlanilha():
 
     dicionario = {"Nomes": nomeCompleto, "Email": eMail }
     nome = input("Digite o nome que o arquivo ira receber: ")
+    
     planilha = pd.DataFrame.from_dict(dicionario)
     print(planilha)
     planilha.to_excel("{}.xlsx".format(nome))
@@ -130,9 +131,10 @@ def menu():
     print("(4) Verificação da existência do usuário (por nome) :")
     print("(5) Remoção do usuário (busca por e-mail) :")
     print("(6) Alteração do nome do usuário (busca por e-mail) :")
-    print("(7) Sair do menu de cadastro : ")
+    print("(7) Exportar conteudo para uma planilha Excel: ")
+    print("(8) Sair do menu de cadastro : ")
     escolha=int(input("Digite a opção desejada : "))
-    while escolha < 1 or escolha > 7 :
+    while escolha < 1 or escolha > 8 :
         escolha=int(input("Opção inválida. Digite novamente a opção desejada : "))
     return escolha
 
@@ -152,6 +154,8 @@ def main():
     if dado == 6:
         trocarNome() 
     if dado == 7:
+        converterPlanilha()
+    if dado == 8:
         exit(0)
     main()
 
